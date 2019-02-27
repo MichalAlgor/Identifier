@@ -10,6 +10,7 @@
 		B59770A222268EB700BCD6E9 /* Identifier.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B597709822268EB700BCD6E9 /* Identifier.framework */; };
 		B59770A722268EB700BCD6E9 /* IdentifierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59770A622268EB700BCD6E9 /* IdentifierTests.swift */; };
 		B59770A922268EB700BCD6E9 /* Identifier.h in Headers */ = {isa = PBXBuildFile; fileRef = B597709B22268EB700BCD6E9 /* Identifier.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B5C970A922268EFB0027E3B1 /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C970A822268EFB0027E3B1 /* Identifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		B59770A122268EB700BCD6E9 /* IdentifierTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IdentifierTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B59770A622268EB700BCD6E9 /* IdentifierTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierTests.swift; sourceTree = "<group>"; };
 		B59770A822268EB700BCD6E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5C970A822268EFB0027E3B1 /* Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			children = (
 				B597709B22268EB700BCD6E9 /* Identifier.h */,
 				B597709C22268EB700BCD6E9 /* Info.plist */,
+				B5C970A822268EFB0027E3B1 /* Identifier.swift */,
 			);
 			path = Identifier;
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 				TargetAttributes = {
 					B597709722268EB700BCD6E9 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 					B59770A022268EB700BCD6E9 = {
 						CreatedOnToolsVersion = 10.1;
@@ -194,6 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5C970A922268EFB0027E3B1 /* Identifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +346,7 @@
 		B59770AD22268EB700BCD6E9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -358,6 +364,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.czupryna.Identifier;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -366,6 +373,7 @@
 		B59770AE22268EB700BCD6E9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -391,6 +399,7 @@
 		B59770B022268EB700BCD6E9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3CLRB8RND9;
 				INFOPLIST_FILE = IdentifierTests/Info.plist;
@@ -409,6 +418,7 @@
 		B59770B122268EB700BCD6E9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3CLRB8RND9;
 				INFOPLIST_FILE = IdentifierTests/Info.plist;
