@@ -54,20 +54,4 @@ extension Identifier where Value.RawIdentifier == Int {
 	}
 }
 
-extension Identifier: Codable where Value.RawIdentifier == UUID {
-	public init(from decoder: Decoder) throws {
-		let container = try decoder.singleValueContainer()
-		let uuidString = try container.decode(String.self)
-		guard let uuid = UUID(uuidString: uuidString) else {
-			throw DecodingError.typeMismatch(UUID.self, .init(codingPath: [], debugDescription: "Cannot create UUID from string"))
-		}
-		rawValue = uuid
-	}
-
-	public func encode(to encoder: Encoder) throws {
-		var container = encoder.singleValueContainer()
-		try container.encode(rawValue)
-	}
-}
-
 extension Identifier: Equatable { }
