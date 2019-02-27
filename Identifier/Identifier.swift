@@ -15,9 +15,9 @@ public protocol Identifiable: Equatable {
 }
 
 public struct Identifier<Value: Identifiable> {
-	let rawValue: Value.RawIdentifier
+	public let rawValue: Value.RawIdentifier
 
-	init(rawValue: Value.RawIdentifier) {
+	public init(rawValue: Value.RawIdentifier) {
 		self.rawValue = rawValue
 	}
 }
