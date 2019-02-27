@@ -11,7 +11,7 @@ import Foundation
 public protocol Identifiable: Equatable {
 	associatedtype RawIdentifier: Codable & Equatable = String
 
-	var uuid: Identifier<Self> { get }
+	var id: Identifier<Self> { get }
 }
 
 public struct Identifier<Value: Identifiable> {
