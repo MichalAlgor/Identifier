@@ -19,16 +19,95 @@ class IdentifierTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
+    func testUUIDIdentifier() throws {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+		struct TestStruct: Identifiable, Codable {
+			typealias RawIdentifier = Int
+			let id: Identifier<TestStruct>
+
+		}
+
+		let id = Identifier<TestStruct>(rawValue: 10)
+		let test = TestStruct(id: id)
+
+		XCTAssertNotNil(test, "Should create object")
+
+		let encoder = JSONEncoder()
+		let data = try encoder.encode(test)
+		print(String(decoding: data, as: UTF8.self))
+		XCTAssertNotNil(data, "Should encode test struct")
+		let decoder = JSONDecoder()
+		let testFromJson = try decoder.decode(TestStruct.self, from: data)
+		XCTAssertEqual(test, testFromJson, "Should be the same objects")
     }
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
+//	func testIntIdentifier() throws {
+//		// This is an example of a functional test case.
+//		// Use XCTAssert and related functions to verify your tests produce the correct results.
+//		struct TestStruct: Identifiable, Codable {
+//			typealias RawIdentifier = Int
+//			let id: Identifier<TestStruct>
+//		}
+//
+//		let id = Identifier<TestStruct>(rawValue: 10)
+//		let test = TestStruct(id: id)
+//
+//		XCTAssertNotNil(test, "Should create object")
+//
+//		let encoder = JSONEncoder()
+//		let data = try encoder.encode(test)
+//		print(String(decoding: data, as: UTF8.self))
+//		XCTAssertNotNil(data, "Should encode test struct")
+//		let decoder = JSONDecoder()
+//		let testFromJson = try decoder.decode(TestStruct.self, from: data)
+//		XCTAssertEqual(test, testFromJson, "Should be the same objects")
+//	}
 
+//	func testStringIdentifier() throws {
+//		// This is an example of a functional test case.
+//		// Use XCTAssert and related functions to verify your tests produce the correct results.
+//		struct TestStruct: Identifiable, Codable {
+//			typealias RawIdentifier = String
+//			let id: Identifier<TestStruct>
+//		}
+//
+//		let id = Identifier<TestStruct>(rawValue: "Identifier")
+//		let test = TestStruct(id: id)
+//
+//		XCTAssertNotNil(test, "Should create object")
+//
+//		let encoder = JSONEncoder()
+//		let data = try encoder.encode(test)
+//		print(String(decoding: data, as: UTF8.self))
+//		XCTAssertNotNil(data, "Should encode test struct")
+//		let decoder = JSONDecoder()
+//		let testFromJson = try decoder.decode(TestStruct.self, from: data)
+//		XCTAssertEqual(test, testFromJson, "Should be the same objects")
+//	}
+//
+//	func testCustomIdentifier() throws {
+//		// This is an example of a functional test case.
+//		// Use XCTAssert and related functions to verify your tests produce the correct results.
+//		struct CustomId: Equatable, Codable {
+//			let value: String
+//		}
+//		struct TestStruct: Identifiable, Codable {
+//			typealias RawIdentifier = CustomId
+//			let id: Identifier<TestStruct>
+//		}
+//
+//		let id = Identifier<TestStruct>(rawValue: CustomId(value: "Id"))
+//		let test = TestStruct(id: id)
+//
+//		XCTAssertNotNil(test, "Should create object")
+//
+//		let encoder = JSONEncoder()
+//		let data = try encoder.encode(test)
+//		print(String(decoding: data, as: UTF8.self))
+//		XCTAssertNotNil(data, "Should encode test struct")
+//		let decoder = JSONDecoder()
+//		let testFromJson = try decoder.decode(TestStruct.self, from: data)
+//		XCTAssertEqual(test, testFromJson, "Should be the same objects")
+//	}
 }
